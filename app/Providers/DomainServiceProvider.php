@@ -14,13 +14,15 @@ class DomainServiceProvider extends ServiceProvider
         $this->discoverDomains(function ($domainPath, $domainName) {
             // 1. Auto-register Service Providers
             $providersPath = $domainPath . '/Domain/Providers';
-            
+
             if (File::isDirectory($providersPath)) {
                 $providerFiles = File::files($providersPath);
 
                 foreach ($providerFiles as $file) {
-                    // Convert file path to Class Name
-                    // Example: App\Domains\Blog\Domain\Providers\BlogServiceProvider
+                    /**
+                     * Convert file path to Class Name
+                     * Example: App\Domains\Blog\Domain\Providers\BlogServiceProvider
+                     */
                     $className = 'App\\Domains\\' . $domainName . '\\Domain\\Providers\\' . $file->getFilenameWithoutExtension();
 
                     if (class_exists($className)) {
@@ -44,28 +46,34 @@ class DomainServiceProvider extends ServiceProvider
         $directories = File::directories($domainsPath);
 
         foreach ($directories as $domainPath) {
-            // $domainPath is the full absolute path, e.g., /var/www/app/Domains/Blog
-
-            // 3. Auto-load Migrations
-            // Path: app/Domains/{Domain}/Domain/Migrations
+            
+            /**
+             * $domainPath is the full absolute path, e.g., /var/www/app/Domains/Blog
+             * 
+             * 3. Auto-load Migrations
+             * Path: app/Domains/{Domain}/Domain/Migrations
+             */
+            
             $migrationPath = $domainPath . '/Domain/Migrations';
             if (File::isDirectory($migrationPath)) {
                 $this->loadMigrationsFrom($migrationPath);
             }
 
-            // 4. Auto-load Routes
-            // Path: app/Domains/{Domain}/routes.php
+            /**
+             * 4. Auto-load Routes
+             * Path: app/Domains/{Domain}/routes.php
+             */
             $routeFile = $domainPath . '/routes.php';
             if (File::exists($routeFile)) {
                 Route::middleware('web')
                     ->group($routeFile);
-            }            
+            }
         }
     }
 
-    // /**
-    //  * Helper to avoid repeating the directory scanning logic.
-    //  */
+    /**
+     * Helper to avoid repeating the directory scanning logic.
+     */
     protected function discoverDomains(callable $callback): void
     {
         $domainsPath = base_path('app/Domains');
@@ -81,5 +89,4 @@ class DomainServiceProvider extends ServiceProvider
             $callback($path, $domainName);
         }
     }
-
 }
