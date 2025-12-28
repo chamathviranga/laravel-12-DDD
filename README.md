@@ -2,47 +2,68 @@
 
 ```
 .
-├── Domains
-│   ├── Blog
-│   │   ├── Adapters
-│   │   │   └── EloquentCategoryRepository.php
-│   │   ├── Domain
-│   │   │   ├── Controllers
-│   │   │   │   └── BlogController.php
-│   │   │   ├── DTO
-│   │   │   │   └── CategoryDTO.php
-│   │   │   ├── Migrations
-│   │   │   │   └── 2025_12_27_233259_create_category_table.php
-│   │   │   ├── Models
-│   │   │   │   └── Blog.php
-│   │   │   ├── Ports
-│   │   │   │   └── CategoryRepository.php
-│   │   │   ├── Providers
-│   │   │   │   └── BlogServiceProvider.php
-│   │   │   └── Services
-│   │   │       └── BlogService.php
-│   │   └── routes.php
-│   └── Category
-│       ├── Domain
-│       │   ├── Adapters
-│       │   ├── Controllers
-│       │   │   └── CategoryController.php
-│       │   ├── Migrations
-│       │   │   └── 2025_12_27_233425_create_blogs_table.php
-│       │   ├── Models
-│       │   │   └── Category.php
-│       │   ├── Ports
-│       │   └── Services
-│       │       └── CategoryService.php
-│       └── routes.php
-├── Http
-│   └── Controllers
-│       └── Controller.php
-├── Models
-│   └── User.php
-└── Providers
-    ├── AppServiceProvider.php
-    └── DomainServiceProvider.php
+├── app
+│   ├── Domains
+│   │   ├── Blog
+│   │   │   ├── Adapters
+│   │   │   │   └── EloquentCategoryRepository.php
+│   │   │   ├── Domain
+│   │   │   │   ├── Controllers
+│   │   │   │   │   └── BlogController.php
+│   │   │   │   ├── DTO
+│   │   │   │   │   └── CategoryDTO.php
+│   │   │   │   ├── Migrations
+│   │   │   │   │   └── 2025_12_27_233259_create_category_table.php
+│   │   │   │   ├── Models
+│   │   │   │   │   └── Blog.php
+│   │   │   │   ├── Ports
+│   │   │   │   │   └── CategoryRepository.php
+│   │   │   │   ├── Providers
+│   │   │   │   │   └── BlogServiceProvider.php
+│   │   │   │   └── Services
+│   │   │   │       └── BlogService.php
+│   │   │   └── routes.php
+│   │   └── Category
+│   │       ├── Domain
+│   │       │   ├── Adapters
+│   │       │   ├── Controllers
+│   │       │   │   └── CategoryController.php
+│   │       │   ├── Migrations
+│   │       │   │   └── 2025_12_27_233425_create_blogs_table.php
+│   │       │   ├── Models
+│   │       │   │   └── Category.php
+│   │       │   ├── Ports
+│   │       │   └── Services
+│   │       │       └── CategoryService.php
+│   │       └── routes.php
+│   ├── Http
+│   │   └── Controllers
+│   │       └── Controller.php
+│   ├── Models
+│   │   └── User.php
+│   └── Providers
+│       ├── AppServiceProvider.php
+│       └── DomainServiceProvider.php
+├── artisan
+├── bootstrap
+│   ├── app.php
+│   ├── cache
+│   │   ├── packages.php
+│   │   └── services.php
+│   └── providers.php
+├── composer.json
+├── composer.lock
+├── config
+│   ├── app.php
+│   ├── auth.php
+│   ├── cache.php
+│   ├── database.php
+│   ├── filesystems.php
+│   ├── logging.php
+│   ├── mail.php
+│   ├── queue.php
+│   ├── services.php
+│   └── session.php
 
 
 ```
